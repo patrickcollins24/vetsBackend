@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/patrickcollins24/vetsBackend/issues"
   },
-  "homepage": "https://github.com/patrickcollins24/vetsBackend#readme"
+  "homepage": "https://github.com/patrickcollins24/vetsBackend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
