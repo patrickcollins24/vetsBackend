@@ -2,23 +2,23 @@ CREATE TABLE veteran_user (
     id serial PRIMARY KEY,
     first_name text NOT NULL,
     last_name text NOT NULL,
-    year integer
+    mobile_number integer,
+    email text,
+    city text,
+    zip_code integer
+    password varchar(100)
 );
 CREATE TABLE provider_user (
     id serial PRIMARY KEY,
-    first_name text NOT NULL,,
-    phone_number
-    text,
-    year integer
+    first_name text NOT NULL,
+    last_name text NOT NULL,
+    mobile_number integer,
+    email text,
+    city text,
+    zip_code integer
+    password varchar(100)
 );
-
-FirstName: "",
-      LastName: "",
-      PhoneNumber: "",
-      email: "",
-      City: "",
-      State: "",
-      ZipCode: "",
-      username: "",
-      password: "",
-      PasswordConfirm
+CREATE TABLE assignment (
+    id serial PRIMARY KEY,
+    events text,
+    appoinments text
