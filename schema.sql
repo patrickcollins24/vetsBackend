@@ -15,10 +15,12 @@ CREATE TABLE provider_user (
     mobile_number integer,
     email text,
     city text,
-    zip_code integer
+    zip_code integer,
+    username text,
     password varchar(100)
 );
 CREATE TABLE assignment (
     id serial PRIMARY KEY,
     events text,
     appoinments text
+);
