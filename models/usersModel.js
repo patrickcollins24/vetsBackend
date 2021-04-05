@@ -1,8 +1,9 @@
 const db = require('.conn');
 
-class User {
-    constructor(id, first_name, last_name, email, username, password ) {
+class Users {
+    constructor(id, provider, first_name, last_name, email, username, password ) {
         this.id = id;
+        this.provider = provider;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -10,9 +11,9 @@ class User {
         this.password = password;
     }
 
-    static async addUser (first_name, last_name, email, username, password) {
+    static async addUser (provider, first_name, last_name, email, username, password) {
         try {
-            const query = `INSERT INTO provider_user (first_name, last_name, email, username, password) VALUES ('${first_name}','${last_name}', '${email}', '${username}', '${password}') RETURNING id`;
+            const query = `INSERT INTO users (boolean, first_name, last_name, email, username, password) VALUES ('${first_name}','${last_name}', '${email}', '${username}', '${password}') RETURNING id`;
             const response = await db.one(query)
             return response;
         }catch (error){
@@ -42,6 +43,7 @@ class User {
             
         }
         static async userList (user_id) {
+            const query = `Select `
             
         }  
         }

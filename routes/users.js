@@ -2,7 +2,7 @@ const { route } = require('.')
 
 const express = require('express'),
     router = express.Router(),
-    UserModel = require('../models/userModel')
+    UserModel = require('../models/usersModel')
 
     router.get("/", async (req, res) => {
         const userData = await UserModel.getAll();

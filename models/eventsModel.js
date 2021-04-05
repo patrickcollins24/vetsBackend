@@ -15,4 +15,30 @@ class EventsModel {
         this.password = password;
     }
 
+    static async getEventsList() {
+        const response = await db.any(`
+        SELECT * FROM events;`);
+        return response
+
+}
+static async getUserEvents() {
+    const userEventData = db.one(`
+    SELECT * FROM events WHERE id = ${user_id}; `  
+    );
+    return userEventData
+}
+
+static async addEvents(id, title, description, date, time, location) {
+    const response = await db.result(`INSERT INTO events ( id, title, description, date, time, location) VALUES ($1, $2, $3, $4, $5, $6)`,
+
+    [id, title, description, date, time, location ]
+);
+    return response;
+}
+
+static async deleteEvents(id) {
+    const response = await db.result(`DELETE FROM events WHERE id = ${id}`);
+    return response;
+}
+
 }

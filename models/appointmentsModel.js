@@ -35,14 +35,15 @@ class  AppointmentsModel {
         return response;
     }
 
-    static async changeAppointments() {
-        const response = await db.result(` UPDATE appointments SET  = $1
-        WHERE id = $2 , 
+    //static async changeAppointments() {
+        //const response = await db.result(` UPDATE appointments SET  = $1
+        //WHERE id = $2 , 
         
-        []`
-        );
-            return response;
-    }
+        //[]`
+        //);
+       //     return response;
+    //
+    //}
 
     static async deleteAppointments(id) {
         const response = await db.result(`DELETE FROM appointments WHERE id = ${id}`);
