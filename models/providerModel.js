@@ -14,4 +14,5 @@ class ProviderModel {
         this.username = username;
         this.password = password;
     }
+
 }
