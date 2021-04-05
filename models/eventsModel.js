@@ -1,7 +1,9 @@
+'use strict';
+
 const db = require('.conn');
 
-class  {
-    constructor(id, first_name, last_name, mobile_number, city, state, zip_code, username, password ) {
+class EventsModel {
+    constructor(id, title, description, date, time, location ) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -12,4 +14,5 @@ class  {
         this.username = username;
         this.password = password;
     }
+
 }

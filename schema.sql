@@ -1,7 +1,6 @@
 CREATE TABLE users (
     id serial PRIMARY KEY,
-    provider text,
-    veteran text,
+    provider boolean,
     first_name text NOT NULL,
     last_name text NOT NULL,
     email text,
@@ -11,17 +10,19 @@ CREATE TABLE users (
 
 CREATE TABLE appointments (
     id serial PRIMARY KEY,
+    description text,
     date integer,
     time integer,
-    description text,
     provider_name text,
-    location text
+    location text,
+    user_id integer REFERENCES users (id)
+
 );
 CREATE TABLE events (
     id serial PRIMARY KEY,
     title text,
-    date interger,
-    time interger,
     description text,
+    date integer,
+    time integer,
     location text
 );

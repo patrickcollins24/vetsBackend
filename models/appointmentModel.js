@@ -4,9 +4,14 @@
 const db = require('./conn');
 
 class  AppointmentsModel {
-    constructor(id, activity_id) {
+    constructor(id, description, date, time, provider_name, location, user_id) {
         this.id = id;
-        this.activity_id = activity_id;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+        this.provider_name= provider_name;
+        this.location = location;
+        this.user_id = user_id;
     }
 
     static async getAppointmentsList() {
@@ -17,32 +22,32 @@ class  AppointmentsModel {
     }
     static async getUserAppointments() {
         const userAppointmentData = db.one(`
-        SELECT * FROM activities_list WHERE id = ${users_id}; `  
+        SELECT * FROM appointments WHERE id = ${user_id}; `  
         );
-        return userActivityData
+        return userAppointmentData
     }
 
-    static async addActivities(activity_id, title, date, time) {
-        const response = await db.result(`INSERT INTO activities_list ( activity_id, title, date, time) VALUES ($1, $2, $3, $4)`,
+    static async addAppointments(id, description, date, time, provider, location, user_id) {
+        const response = await db.result(`INSERT INTO appointments ( id, description, date, time, provider, location, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
 
-        [activity_id, title, date, time]
+        [id, description, date, time, provider, location, user_id ]
     );
         return response;
     }
 
-    static async changeComplete(boolean, users_id) {
-        const response = await db.result(` UPDATE activities_list SET complete = $1
+    static async changeAppointments() {
+        const response = await db.result(` UPDATE appointments SET  = $1
         WHERE id = $2 , 
         
-        [boolean, users_id]`
+        []`
         );
             return response;
     }
 
-    static async deleteActivity(id) {
-        const response = await db.result(`DELETE FROM activities_list WHERE id = ${id}`);
+    static async deleteAppointments(id) {
+        const response = await db.result(`DELETE FROM appointments WHERE id = ${id}`);
         return response;
     }
 
 }
-module.exports = ActivitiesModel;
+module.exports = AppointmentsModel;
