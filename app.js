@@ -31,7 +31,7 @@ SERVER.listen(PORT, HOSTNAME, () => {
 });
 
 const rootController = require('./routes/index');
-const providersController = require('./routes/providers'); 
+const appointmentsController = require('./routes/appointments'); 
 
 app.use("/", rootController);
-app.use('/providers', providersController);
+app.use('/appointments', appointmentsController);

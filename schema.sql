@@ -1,24 +1,28 @@
-CREATE TABLE veteran_user (
+CREATE TABLE users (
     id serial PRIMARY KEY,
+    provider boolean,
     first_name text NOT NULL,
     last_name text NOT NULL,
-    mobile_number integer,
     email text,
-    city text,
-    zip_code integer
+    username text,
     password varchar(100)
 );
-CREATE TABLE provider_user (
+
+CREATE TABLE appointments (
     id serial PRIMARY KEY,
-    first_name text NOT NULL,
-    last_name text NOT NULL,
-    mobile_number integer,
-    email text,
-    city text,
-    zip_code integer
-    password varchar(100)
+    description text,
+    date integer,
+    time integer,
+    provider_name text,
+    location text,
+    user_id integer REFERENCES users (id)
+
 );
-CREATE TABLE assignment (
+CREATE TABLE events (
     id serial PRIMARY KEY,
-    events text,
-    appoinments text
+    title text,
+    description text,
+    date integer,
+    time integer,
+    location text
+);
