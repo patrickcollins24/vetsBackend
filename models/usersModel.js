@@ -1,4 +1,4 @@
-const db = require('.conn');
+const db = require('./conn');
 
 class Users {
     constructor(id, provider, first_name, last_name, email, username, password ) {
@@ -49,4 +49,4 @@ class Users {
         }
         
     
-module.exports = User;
+module.exports = Users;
