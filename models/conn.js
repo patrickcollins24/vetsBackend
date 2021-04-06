@@ -1,7 +1,7 @@
 const host = 'queenie.db.elephantsql.com',
-    database = 'gbluamdp',
-    user= 'gbluamdp',
-    password = 'Gof18ZoYTO2ci_yUuZN651H4Vh6IVh-Q';
+    database = 'nqxvhdgn',
+    user= 'nqxvhdgn',
+    password = 'DosUvsNQ1qrqdHxiGoXJa0MWLpvra38n';
 
 const pgp = require('pg-promise')({
     query: function (event) {

@@ -1,18 +1,15 @@
 'use strict';
 
-const db = require('.conn');
+const db = require('./conn');
 
 class EventsModel {
     constructor(id, title, description, date, time, location ) {
         this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.mobile_number = mobile_number;
-        this.city = city;
-        this.state = state;
-        this.zip_code = zip_code;
-        this.username = username;
-        this.password = password;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+        this.location = location;
     }
 
     static async getEventsList() {
@@ -21,17 +18,17 @@ class EventsModel {
         return response
 
 }
-static async getUserEvents() {
-    const userEventData = db.one(`
-    SELECT * FROM events WHERE id = ${user_id}; `  
+static async getEvents() {
+    const EventData = db.one(`
+    SELECT * FROM events WHERE id = ${id}; `  
     );
-    return userEventData
+    return EventData
 }
 
-static async addEvents(id, title, description, date, time, location) {
-    const response = await db.result(`INSERT INTO events ( id, title, description, date, time, location) VALUES ($1, $2, $3, $4, $5, $6)`,
+static async addEvents(title, description, date, time, location) {
+    const response = await db.result(`INSERT INTO events ( title, description, date, time, location) VALUES ($1, $2, $3, $4, $5)`,
 
-    [id, title, description, date, time, location ]
+    [title, description, date, time, location ]
 );
     return response;
 }
@@ -42,3 +39,5 @@ static async deleteEvents(id) {
 }
 
 }
+
+module.exports = EventsModel;
