@@ -43,7 +43,7 @@ const db = require('./conn'),
 
             if (!!isValid) {
                 const { id, first_name, last_name } = response;
-                return { isValid, user_id: id, first_name, last_name };
+                return { isValid, id: id, first_name, last_name };
             } else {
                 return { isValid }
             }

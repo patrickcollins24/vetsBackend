@@ -34,14 +34,16 @@ const express = require('express'),
 
     router.post('/login', async (req, res) => {
         const { username, password  } = req.body;
-        const user = new UserModel(null, null, null, null, username, password);
+        const user = new UserModel(null, null, null, null, null, username, password);
         const response = await user.login();
+        console.log('hey', response);
         if(!!response.isValid) {
             
             req.session.is_logged_in = response.isValid;
-            req.session.user_id = response.user_id;
+            req.session.id = response.id;
             req.session.username = response.username;
-            res.json('/');
+            res.json(response);
+            
         }else {
             res.sendStatus(403);
         }
